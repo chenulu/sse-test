@@ -1,0 +1,15 @@
+<html>
+<div id="messages">
+</div>
+<script>
+var source = new EventSource("/sse");
+
+source.addEventListener("message", function(event) {
+  var msg = "The server sent: '" + event.data + "'";
+  console.log(msg);
+
+  var messages = document.getElementById("messages");
+  messages.innerHTML = msg;
+});
+</script>
+</html>
